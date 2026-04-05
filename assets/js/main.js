@@ -260,3 +260,23 @@
   new PureCounter();
 
 })()
+
+
+function sendEmail(event) {
+  event.preventDefault(); // stop form submission
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+
+  const body = `Name: ${name}
+Email: ${email}
+
+Message:
+${message}`;
+
+  const mailtoLink = `mailto:support@bookswap.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailtoLink;
+}
